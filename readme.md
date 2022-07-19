@@ -44,3 +44,32 @@
 ### Polymorphism
 
 - A child class can overwrite a method it inherited from a parent class.
+
+## OOP in JS
+
+- Process of creating an instance is instantiation.
+
+### Prototypes.
+
+- All objects in js are linked with a prototype object.
+- The `prototype object` contains methods and properties that all the objects that are linked to that prototype can access and use. This method is known as `prototypal inhertance`
+- Here is instance inheriting from a class.
+- Objects delegate behavior to the linked prototype object. This mechanism is called `delegation`.
+
+### How do we implement OOP in Js ?
+
+#### Constructor Function
+
+- Technique of creating objects from a function.
+- This is how built-in objects like `Arrays, Maps or Sets` are implemented.
+
+#### ES6 Classes
+
+- Modern way of doing OOP in js.
+- They are just a layer of abstraction from constructor functions.
+- They work exactly like constructor functions.
+- They do not behave like classes in classical OOP.
+
+#### Object.create()
+
+- Easiest and most straighforward way of linking an object to a prototype object.
