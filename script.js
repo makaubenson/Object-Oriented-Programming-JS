@@ -29,4 +29,12 @@ const ruth = new Person('Ruth', 2002);
 console.log(ruth, makau);
 //`Person {firstName: 'Ruth', birthYear: 2002} Person {firstName: 'Makau', birthYear: 2002}`;
 
-console.log(benson instanceof Person);
+console.log(benson instanceof Person); //true
+
+//Prototypes
+console.log(Person.prototype);
+
+Person.prototype.calcAge = function () {
+  console.log(2037 - this.birthYear);
+};
+benson.calcAge(); //37

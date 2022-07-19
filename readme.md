@@ -115,3 +115,7 @@ console.log(ruth, makau);
 - `console.log(benson instanceof Person);`// True
 - `console.log(ruth instanceof Person);`// True
 - `console.log(makau instanceof Person);`// True
+
+### Prototypes
+
+- Each function in js has a property called prototype.
