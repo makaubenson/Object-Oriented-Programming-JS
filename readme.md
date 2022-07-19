@@ -73,3 +73,45 @@
 #### Object.create()
 
 - Easiest and most straighforward way of linking an object to a prototype object.
+
+##### Constructor Functions
+
+- Difference between regular and constructor function is, constructor function is `called` with the `new operator`.
+- Constructor functions should always start with caps.
+- Arrow functions wont work as a constructor function since it lacks its `this` keyword.
+- Only function declarations and function expressions will work as constructor functions.
+
+#### What happens when we call a function with the new operator
+
+1. New empty object is created
+2. The function is called, then the this keyword is set to the new empty object.
+3. The Newly created object is linked to prototype
+4. Function auto returns the object created from the beginning.
+
+```
+//function expression
+const Person = function (firstName, birthYear) {
+  //   console.log(this); //Person {}
+  this.firstName = firstName;
+  this.birthYear = birthYear;
+   // This could work, but it is bad practice, you should never create method inside constructor functions.
+  //   this.calcAge = function () {
+  //     console.log(2037 - this.birthYear);
+  //   };
+};
+const benson = new Person('Benson', 2000);
+console.log(benson); //Person {firstName: 'benson', birthYear: 2000}
+
+const makau = new Person('Makau', 2002);
+
+const ruth = new Person('Ruth', 2002);
+
+console.log(ruth, makau);
+// Output of creating the Objects.
+`Person {firstName: 'Ruth', birthYear: 2002} Person {firstName: 'Makau', birthYear: 2002}`;
+```
+
+- `benson, makau and ruth ` are all instances of `Person`.
+- `console.log(benson instanceof Person);`// True
+- `console.log(ruth instanceof Person);`// True
+- `console.log(makau instanceof Person);`// True
