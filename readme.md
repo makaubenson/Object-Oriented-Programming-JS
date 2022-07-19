@@ -119,3 +119,18 @@ console.log(ruth, makau);
 ### Prototypes
 
 - Each function in js has a property called prototype.
+
+```
+Person.prototype.calcAge = function () {
+  console.log(2037 - this.birthYear);
+};
+benson.calcAge(); //37
+
+//Prototype for benson
+console.log(benson.__proto__); //{calcAge: ƒ, constructor: ƒ}
+console.log(benson.__proto__ === Person.prototype); //true
+console.log(Person.prototype.isPrototypeOf(benson)); //true
+console.log(Person.prototype.isPrototypeOf(Person)); //false
+```
+
+- Person.prototype is the prototype of benson, ruth or even makau BUT `Person.prototype is not the prototype of Person`
