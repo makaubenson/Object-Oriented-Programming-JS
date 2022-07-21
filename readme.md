@@ -169,4 +169,6 @@ console.log(benson.hasOwnProperty('species'));//false
 - The first instance is `true` since `firstName` is a direct property of `benson`
 - The second instance is `false` since `species` is not a direct property of `benson` but of the `benson.prototype` or rather the prototype property of `Person` (Person.prototype).
 
-[!benson-prototype-img]
+![benson prototype](https://user-images.githubusercontent.com/59168713/180166749-f836e175-af3d-418f-90b4-704ec84c1842.png)
+
+
