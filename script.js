@@ -56,4 +56,24 @@ console.log(benson.species); //Homo Sapiens
 console.log(ruth.species); //Homo Sapiens
 
 console.log(benson.hasOwnProperty('firstName')); //true
-console.log(benson.hasOwnProperty('species'));
+console.log(benson.hasOwnProperty('species')); //false
+
+console.log(benson.__proto__);
+console.log(benson.__proto__.__proto__);
+console.log(benson.__proto__.__proto__.__proto__);
+
+console.dir(Person.prototype.constructor);
+
+//Prototype of Arrays
+const arr = [3, 6, 4, 6, 9, 5, 6, 9, 3];
+console.log(arr.__proto__); // Returns all functions that exists in Array.prototype
+console.log(arr.__proto__ === Array.prototype); //true
+
+Array.prototype.unique = function () {
+  return [...new Set(this)];
+};
+
+console.log(arr.unique()); //[3, 6, 4, 9, 5]
+
+const h1 = document.querySelector('h1');
+console.dir(h1);

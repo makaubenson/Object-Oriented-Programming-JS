@@ -214,3 +214,26 @@ const Person = function(name,birthYear){
 
 ![prototype chain](https://user-images.githubusercontent.com/59168713/180174506-ec91494e-c0b2-42f3-bf25-e0ce98c660be.png)
 
+## Prototype Inheritance on Built In Objects
+
+#### Prototype of Arrays
+
+```
+const arr = [3, 6, 4, 5, 6, 9, 3];
+console.log(arr.__proto__);
+```
+
+- Since arrays inherit all the methods from `Array.prototype`, we can extend the functionality of arrays by creating functions in the Arrays prototype.
+
+```
+const arr = [3, 6, 4, 5, 6, 9, 3];
+Array.prototype.unique = function () {
+  return [...new Set(this)];
+};
+
+console.log(arr.unique());//[3, 6, 4, 9, 5]
+```
+
+- Its not a good idea though to extend arrays functionality as above:-
+- (a) - Js may add a new function to their code base with the same name as yours and working differently, thus your code will use the new method.
+- (b) - Not appropriate for projects being collaborated.
