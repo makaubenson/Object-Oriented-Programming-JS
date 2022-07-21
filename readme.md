@@ -135,4 +135,6 @@ console.log(Person.prototype.isPrototypeOf(Person)); //false
 
 - Person.prototype is the prototype of benson, ruth or even makau BUT `Person.prototype is not the prototype of Person`
 
-- [!prototypal-inheritance-image]
+![inheritance](https://user-images.githubusercontent.com/59168713/180155939-54a20059-7624-4484-ad00-e90ff83a2130.png)
+
+![prototypal inheritance](https://user-images.githubusercontent.com/59168713/180155894-6b520e5f-7001-4b68-a4c2-43526a525408.png)
