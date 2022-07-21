@@ -153,7 +153,7 @@ PersonCl.prototype.greet = function () {
   console.log(`Hey ${this.firstName}`);
 };
 jessica.greet(); //Hey Jesicca Brown
-*/
+
 
 const account = {
   owner: 'Jonas',
@@ -206,3 +206,4 @@ const bensonCl = new PersonCl('Benson Makau', 2000);
 console.log(bensonCl.age); //37
 
 const walter = new PersonCl('Walter Kivyolo', 1995);
+*/
