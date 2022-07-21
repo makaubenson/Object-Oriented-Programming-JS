@@ -207,3 +207,71 @@ console.log(bensonCl.age); //37
 
 const walter = new PersonCl('Walter Kivyolo', 1995);
 */
+
+//static methods
+const Person = function (firstName, birthYear) {
+  //   console.log(this); //Person {}
+
+  //instance properties
+  this.firstName = firstName;
+  this.birthYear = birthYear;
+
+  // This could work, but it is bad practice, you should never create method inside constructor functions.
+  //   this.calcAge = function () {
+  //     console.log(2037 - this.birthYear);
+  //   };
+};
+const ruth = new Person('Ruth', 2002);
+
+const makau = new Person('Makau', 2000);
+console.log(ruth, makau);
+
+//creating a static method
+Person.hey = function () {
+  console.log('Hey There.....!!!');
+};
+
+//calling the function
+Person.hey();
+
+//Objects Cant Access The Method Above
+// makau.hey();
+//Uncaught TypeError: makau.hey is not a function
+//This is because, the function is not defined in the constructor functions prototype.
+
+class PersonCl {
+  //add constructor method- works as constructor function.
+  constructor(fullName, birthYear) {
+    this.fullName = fullName;
+    this.birthYear = birthYear;
+  }
+  //INSTANCE METHODS
+  //Properties and Methods writted outside constructor will be in prototype
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  }
+
+  //getter in a class
+  get age() {
+    return 2037 - this.birthYear;
+  }
+  //setting a property that already exists
+  set fullName(name) {
+    console.log(name);
+    if (name.includes(' ')) this._fullName = name;
+    else alert(`${name} is not a full name`);
+  }
+  get fullName() {
+    return this._fullName;
+  }
+
+  //creating static method
+  static hey() {
+    console.log('Hey There.....!CLASSS!');
+  }
+}
+
+const bensonCl = new PersonCl('Benson Makau', 2000);
+console.log(bensonCl.age); //37
+
+PersonCl.hey();

@@ -334,3 +334,28 @@ console.log(account.latest); //300
 account.latest = 50;
 console.log(account.movements);
 ```
+
+## Static Methods
+
+- `Array.from()` converts any array like structure to a real array.
+- `from()` is a method attached to the `Array` constructor, we cannot use it on its own on an array.
+
+##### Method 1
+
+```
+//creating a static method
+Person.hey = function () {
+  console.log('Hey There.....!!!');
+};
+
+//calling the function
+Person.hey();
+```
+
+##### Method 2
+
+```
+  static hey() {
+    console.log('Hey There.....!CLASSS!');
+  }
+```
