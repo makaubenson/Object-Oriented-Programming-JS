@@ -237,3 +237,32 @@ console.log(arr.unique());//[3, 6, 4, 9, 5]
 - Its not a good idea though to extend arrays functionality as above:-
 - (a) - Js may add a new function to their code base with the same name as yours and working differently, thus your code will use the new method.
 - (b) - Not appropriate for projects being collaborated.
+
+```
+const Car = function (make, speed) {
+  this.speed = speed;
+  this.make = make;
+};
+
+//create functions
+Car.prototype.accelerate = function () {
+  this.speed += 10;
+  console.log(`${this.make} is going at ${this.speed}`);
+};
+
+Car.prototype.break = function () {
+  this.speed -= 15;
+  console.log(`${this.make} is going at ${this.speed}`);
+};
+
+//create car objects
+const bmw = new Car('BMW', 120);
+const mercedes = new Car('Mercedes', 93);
+
+bmw.accelerate();
+bmw.break();
+bmw.accelerate();
+bmw.accelerate();
+bmw.break();
+
+```
