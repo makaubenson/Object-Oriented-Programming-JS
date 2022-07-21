@@ -525,4 +525,4 @@ jay.introduce();
 jay.calcAge();
 ```
 
-![ObjectCreateClassInheritanceImg]
+![ObjectCreate class inheritance](https://user-images.githubusercontent.com/59168713/180309648-bcd3b19f-b148-436e-b0f3-ac6a228a1144.png)
