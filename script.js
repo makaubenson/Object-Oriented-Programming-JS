@@ -125,7 +125,7 @@ bmw.accelerate();
 bmw.accelerate();
 bmw.break();
 bmw.accelerate();
-*/
+
 
 //ES6 CLASSES
 //class expression
@@ -153,3 +153,24 @@ PersonCl.prototype.greet = function () {
   console.log(`Hey ${this.firstName}`);
 };
 jessica.greet(); //Hey Jesicca Brown
+*/
+
+const account = {
+  owner: 'Jonas',
+  movements: [200, 530, 120, 300],
+  //getter - To make a method a getter, you prepend the keyword get before the method
+  get latest() {
+    return this.movements.slice(-1).pop();
+  },
+  //setter- to make a method a setter, prepend the keyword set before the method
+  set latest(mov) {
+    //setter must always have at least one method parameter
+    this.movements.push(mov);
+  },
+};
+
+//to access the getter, we call it like a property not method
+console.log(account.latest); //300
+
+account.latest = 50;
+console.log(account.movements);

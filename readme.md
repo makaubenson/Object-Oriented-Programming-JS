@@ -306,3 +306,9 @@ jessica.greet(); //Hey Jesicca Brown
 ### What to use between constructor functions pr ES6 CLASSES
 
 - Its personal preferences (since all work the same despite that classes just hide the real nature of constructor functions.)
+
+## Setters and Getters
+
+- Every objects in js can have setter and getter properties.
+- We call these properties `assesor` properties while the normal properties are called `data` properties.
+- They are basically functions that set and get values.
