@@ -178,8 +178,8 @@ console.log(account.movements);
 //Getters and Setters in Classes
 class PersonCl {
   //add constructor method- works as constructor function.
-  constructor(firstName, birthYear) {
-    this.firstName = firstName;
+  constructor(fullName, birthYear) {
+    this.fullName = fullName;
     this.birthYear = birthYear;
   }
   //Properties and Methods writted outside constructor will be in prototype
@@ -191,12 +191,18 @@ class PersonCl {
   get age() {
     return 2037 - this.birthYear;
   }
-  set school(name) {
-    return (PersonCl.prototype.school = name);
+  //setting a property that already exists
+  set fullName(name) {
+    console.log(name);
+    if (name.includes(' ')) this._fullName = name;
+    else alert(`${name} is not a full name`);
+  }
+  get fullName() {
+    return this._fullName;
   }
 }
 
 const bensonCl = new PersonCl('Benson Makau', 2000);
 console.log(bensonCl.age); //37
-PersonCl.school = 'Kambiti';
-console.log(bensonCl.school); //37
+
+const walter = new PersonCl('Walter Kivyolo', 1995);
