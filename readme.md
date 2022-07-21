@@ -171,4 +171,41 @@ console.log(benson.hasOwnProperty('species'));//false
 
 ![benson prototype](https://user-images.githubusercontent.com/59168713/180166749-f836e175-af3d-418f-90b4-704ec84c1842.png)
 
+## How Prototypal Inheritance / Delegation Works
 
+- It all starts with the creation of the constructor function, e.g
+
+```
+const Person = function(name,birthYear){
+  this.name = name;
+  this.birthYear = birthYear;
+}
+```
+
+- This constructor function has Prototype property which is an object. (Person.prototype)
+- `Person.prototype` has link back to the constructor function which is the `constructor` property.
+- Essentially, `Person.prototype.constructor` will point back to the `Person` constructor function.
+- Person.prototype is not the prototype of Person constructor function but of all the objects created using the the `Person` Constructor function.
+
+## How Object is created using the new Operator and the constructor function.
+
+- When we call any function with the `new` operator, a new empty object is created instantly, then `this` keyword is assigned to the newly created object.
+- The new object is linked to the constructor functions prototype property(Person.prototype). This happens internally by adding `__proto__` to the new object.
+- Therefore, `Person.prototype` is the new object's prototype which is denoted in the `__proto__` property of the object(e.g benson).
+- The new object is auto returned from the functions unless it is explicitly defined something else.
+
+## Why does it work this way, and why is this technique so powerful?
+
+`benson.calcAge()` - While trying to call this function, js cant actually find the calcAge function in the `benson object`.
+
+- We can create as many Person objects as we want and they will all access the properties and methods in Person prototypes property.
+
+#### How then does it finally executed the function?
+
+- When js doesnt find a method or property directly in the Object's property, it looks in the prototype.
+
+## More Prototypes Detail
+
+- Since Person.prototype is an object, it also has a prototype, and its prototype is `Object.Prototype`.
+- `Object.prototype` is the top in the prototype chain, thus its prototype is `null`.
+- Its `__proto__` will point to `null`;
