@@ -490,3 +490,39 @@ martha.introduce();
 martha.calcAge();
 
 ```
+
+## INHERITANCE BETWEEN CLASSES: OBJECT.CREATE
+
+```
+//Object.create
+const personProto = {
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  },
+  init(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  },
+};
+//This object will be the prototype of all the Person objects
+
+const steven = Object.create(personProto);
+
+//linking prototypes
+const studentProto = Object.create(personProto);
+
+studentProto.init = function (firstName, birthYear, course) {
+  personProto.init.call(this, firstName, birthYear);
+  this.course = course;
+};
+
+studentProto.introduce = function () {
+  console.log(`My name is ${this.fullName} and I study ${this.course}`);
+};
+const jay = Object.create(studentProto);
+jay.init('Jay', 2010, 'Computer Science');
+jay.introduce();
+jay.calcAge();
+```
+
+![ObjectCreateClassInheritanceImg]
