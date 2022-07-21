@@ -174,3 +174,29 @@ console.log(account.latest); //300
 
 account.latest = 50;
 console.log(account.movements);
+
+//Getters and Setters in Classes
+class PersonCl {
+  //add constructor method- works as constructor function.
+  constructor(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  }
+  //Properties and Methods writted outside constructor will be in prototype
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  }
+
+  //getter in a class
+  get age() {
+    return 2037 - this.birthYear;
+  }
+  set school(name) {
+    return (PersonCl.prototype.school = name);
+  }
+}
+
+const bensonCl = new PersonCl('Benson Makau', 2000);
+console.log(bensonCl.age); //37
+PersonCl.school = 'Kambiti';
+console.log(bensonCl.school); //37
