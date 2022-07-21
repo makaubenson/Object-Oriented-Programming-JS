@@ -384,3 +384,99 @@ steven.calcAge(); //36
 - Object.create creates a new object and the prototypeof that object is the object that we parse in.
 - `const steven = Object.create(personProto);`
 - The prototype of steven object is personProto.
+
+### Inheritance Between Classes : Constructor Functions
+
+```
+const Person = function (firstName, birthYear) {
+  //   console.log(this); //Person {}
+
+  //instance properties
+  this.firstName = firstName;
+  this.birthYear = birthYear;
+};
+
+Person.prototype.calcAge = function () {
+  console.log(2037 - this.birthYear);
+};
+
+//Child Class - Pass all the args in parent class plus its own additional ones.
+const Student = function (firstName, birthYear, course) {
+  //method 1: VIOLATES DRY PRINCIPLE
+  // this.firstName = firstName;
+  // this.birthYear = birthYear;
+  //METHOD 2
+  Person.call(this, firstName, birthYear);
+  this.course = course;
+};
+
+//Linking Prototypes
+Student.prototype = Object.create(Person.prototype);
+// Student.prototype is now an object that inherits from Person.prototype
+
+Student.prototype.introduce = function () {
+  console.log(`My name is ${this.firstName} and I am studying ${this.course}`);
+};
+const mike = new Student('Mike', 2020, 'Computer Science');
+console.log(mike);
+mike.introduce();
+mike.calcAge();
+
+Student.prototype.constructor = Student;
+console.log(Student.prototype.constructor);
+```
+
+### Inheritance Between Classes: ES6 CLASSES
+
+```
+//Static Method
+class PersonCl {
+  //add constructor method- works as constructor function.
+  constructor(fullName, birthYear) {
+    this.fullName = fullName;
+    this.birthYear = birthYear;
+  }
+  //Properties and Methods writted outside constructor will be in prototype
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  }
+  greet() {
+    console.log(`Hey ${this.fullName}`);
+  }
+  //getter in a class
+  get age() {
+    return 2037 - this.birthYear;
+  }
+  //setting a property that already exists
+  set fullName(name) {
+    // console.log(name);
+    if (name.includes(' ')) this._fullName = name;
+    else alert(`${name} is not a full name`);
+  }
+  get fullName() {
+    return this._fullName;
+  }
+  //static method
+  static hey() {
+    console.log('Hey There!!');
+  }
+}
+
+//linking prototypes
+class StudentCl extends PersonCl {
+  constructor(fullName, birthYear, course) {
+    //Always needs to happen first
+    super(fullName, birthYear); //Constructor of the Parent Class
+    this.course = course;
+  }
+  introduce() {
+    console.log(`My name is ${this.fullName} and I study ${this.course}`);
+  }
+}
+
+const martha = new StudentCl('Martha James', 2012, 'Computer Science');
+console.log(martha);
+martha.introduce();
+martha.calcAge();
+
+```
