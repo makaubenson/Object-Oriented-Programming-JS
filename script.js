@@ -1,5 +1,5 @@
 'use strict';
-
+/*
 //Constructor Functions
 
 //function expression
@@ -92,7 +92,7 @@ DATA CAR 1: 'BMW' going at 120 km/h
 DATA CAR 2: 'Mercedes' going at 95 km/h
 
 GOOD LUCK 😀
-*/
+
 //constructor function
 const Car = function (make, speed) {
   this.speed = speed;
@@ -125,3 +125,31 @@ bmw.accelerate();
 bmw.accelerate();
 bmw.break();
 bmw.accelerate();
+*/
+
+//ES6 CLASSES
+//class expression
+// const PersonCL = class {};
+
+//Class Declaration
+class PersonCl {
+  //add constructor method- works as constructor function.
+  constructor(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  }
+  //Properties and Methods writted outside constructor will be in prototype
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  }
+}
+//create object (Instance)
+const jessica = new PersonCl('Jesicca Brown', 1998);
+console.log(jessica);
+jessica.calcAge(); //39
+console.log(jessica.__proto__ === PersonCl.prototype); //true
+
+PersonCl.prototype.greet = function () {
+  console.log(`Hey ${this.firstName}`);
+};
+jessica.greet(); //Hey Jesicca Brown

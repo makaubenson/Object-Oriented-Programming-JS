@@ -266,3 +266,43 @@ bmw.accelerate();
 bmw.break();
 
 ```
+
+## ES6 CLASSES
+
+```
+//class expression
+// const PersonCL = class {};
+
+//Class Declaration
+class PersonCl {
+  //add constructor method- works as constructor function.
+  constructor(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  }
+  //Properties and Methods writted outside constructor will be in prototype
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  }
+}
+//create object (Instance)
+const jessica = new PersonCl('Jesicca Brown', 1998);
+console.log(jessica);
+jessica.calcAge(); //39
+console.log(jessica.__proto__ === PersonCl.prototype); //true
+
+PersonCl.prototype.greet = function () {
+  console.log(`Hey ${this.firstName}`);
+};
+jessica.greet(); //Hey Jesicca Brown
+```
+
+##### Please note:
+
+- Classes are not hoisted. You cant use them before declaring.
+- Classes are first class citizens. They can be parsed in functions and returns from functions.
+- Classes are executed in strict mode.
+
+### What to use between constructor functions pr ES6 CLASSES
+
+- Its personal preferences (since all work the same despite that classes just hide the real nature of constructor functions.)
