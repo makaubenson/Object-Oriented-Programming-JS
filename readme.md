@@ -474,6 +474,16 @@ class StudentCl extends PersonCl {
   }
 }
 
+ //Overriding The Original calcAge() function
+  calcAge() {
+    console.log(
+      `I am ${2037 - this.birthYear} years old, but as a student i feel like ${
+        2037 - this.birthYear + 10
+      }`
+    );
+  }
+}
+
 const martha = new StudentCl('Martha James', 2012, 'Computer Science');
 console.log(martha);
 martha.introduce();
