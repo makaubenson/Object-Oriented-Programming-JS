@@ -209,3 +209,8 @@ const Person = function(name,birthYear){
 - Since Person.prototype is an object, it also has a prototype, and its prototype is `Object.Prototype`.
 - `Object.prototype` is the top in the prototype chain, thus its prototype is `null`.
 - Its `__proto__` will point to `null`;
+
+## Prototype Chain In Diagram
+
+![prototype chain](https://user-images.githubusercontent.com/59168713/180174506-ec91494e-c0b2-42f3-bf25-e0ce98c660be.png)
+
