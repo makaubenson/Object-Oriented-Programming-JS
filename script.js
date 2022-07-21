@@ -38,6 +38,7 @@ Person.prototype.calcAge = function () {
   console.log(2037 - this.birthYear);
 };
 benson.calcAge(); //37
+ruth.calcAge(); //35
 
 //Prototype for benson
 console.log(benson.__proto__); //{calcAge: ƒ, constructor: ƒ}
@@ -45,6 +46,7 @@ console.log(benson.__proto__ === Person.prototype); //true
 console.log(Person.prototype.isPrototypeOf(benson)); //true
 console.log(Person.prototype.isPrototypeOf(Person)); //false
 
+//setting properties in the Person.prototype
 Person.prototype.species = 'Homo Sapiens';
 console.log(benson);
 console.log(ruth);
@@ -52,3 +54,6 @@ console.log(makau);
 
 console.log(benson.species); //Homo Sapiens
 console.log(ruth.species); //Homo Sapiens
+
+console.log(benson.hasOwnProperty('firstName')); //true
+console.log(benson.hasOwnProperty('species'));

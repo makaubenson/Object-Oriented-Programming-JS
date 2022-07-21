@@ -118,23 +118,55 @@ console.log(ruth, makau);
 
 ### Prototypes
 
-- Each function in js has a property called prototype.
+- Each function in js has a property called `prototype`. That includes the constructor functions.
+- Every object created by a certain constructor function, will get access to `methods and properties` that we define on the `constructor's prototype property`.
+
+## adding method to prototype property.
 
 ```
 Person.prototype.calcAge = function () {
   console.log(2037 - this.birthYear);
 };
 benson.calcAge(); //37
+ruth.calcAge(); //37
 
 //Prototype for benson
-console.log(benson.__proto__); //{calcAge: ƒ, constructor: ƒ}
+console.log(benson.__proto__); //{calcAge: ƒ, constructor: ƒ} - This the prototype of benson.
+
 console.log(benson.__proto__ === Person.prototype); //true
 console.log(Person.prototype.isPrototypeOf(benson)); //true
 console.log(Person.prototype.isPrototypeOf(Person)); //false
 ```
+
+- The prototype of the benson object is the prototype property of the constructor function.
+- `Person.prototype` is not the prototype of `Person` but what is going to be used as prototype by all objects created with the Person constructor function.
+- This similar to saying `Person.prototype` is the prototype of `benson` object.
 
 - Person.prototype is the prototype of benson, ruth or even makau BUT `Person.prototype is not the prototype of Person`
 
 ![inheritance](https://user-images.githubusercontent.com/59168713/180155939-54a20059-7624-4484-ad00-e90ff83a2130.png)
 
 ![prototypal inheritance](https://user-images.githubusercontent.com/59168713/180155894-6b520e5f-7001-4b68-a4c2-43526a525408.png)
+
+- Due to prototypal inheritance, we can access methods an properties defined in the prototype property of the constructor functions.
+
+```
+benson.calcAge(); //37
+ruth.calcAge(); //35
+```
+
+#### Why does the above code really work?
+
+- This is because each object has access to the methods and properties in its prototype. The prototype of `benson and ruth` is `Person.prototype`.
+
+### Checking if objects properties
+
+```
+console.log(benson.hasOwnProperty('firstName')); //true
+console.log(benson.hasOwnProperty('species'));//false
+```
+
+- The first instance is `true` since `firstName` is a direct property of `benson`
+- The second instance is `false` since `species` is not a direct property of `benson` but of the `benson.prototype` or rather the prototype property of `Person` (Person.prototype).
+
+[!benson-prototype-img]
