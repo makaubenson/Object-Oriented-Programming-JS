@@ -206,7 +206,7 @@ const bensonCl = new PersonCl('Benson Makau', 2000);
 console.log(bensonCl.age); //37
 
 const walter = new PersonCl('Walter Kivyolo', 1995);
-*/
+
 
 //static methods
 const Person = function (firstName, birthYear) {
@@ -275,3 +275,27 @@ const bensonCl = new PersonCl('Benson Makau', 2000);
 console.log(bensonCl.age); //37
 
 PersonCl.hey();
+*/
+
+//Object.create
+const personProto = {
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  },
+  init(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  },
+};
+//This object will be the prototype of all the Person objects
+
+const steven = Object.create(personProto);
+console.log(steven);
+steven.name = 'Steven';
+steven.birthYear = 2001;
+steven.calcAge(); //36
+console.log(steven.__proto__ === personProto); //true
+
+const sarah = Object.create(personProto);
+sarah.init('Sarah', 1979);
+sarah.calcAge();

@@ -359,3 +359,28 @@ Person.hey();
     console.log('Hey There.....!CLASSS!');
   }
 ```
+
+## OBJECT.CREATE - METHOD 3 OF IMPLIMENTING PROTOTYPE INHERITANCE
+
+- No prototype properties, constructor function and new operator.
+
+```
+const personProto = {
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  },
+};
+//This object will be the prototype of all the Person objects
+
+const steven = Object.create(personProto);
+console.log(steven);
+steven.name = 'Steven';
+steven.birthYear = 2001;
+steven.calcAge(); //36
+```
+
+- This is the least used way to implement prototypal inheritance.
+- `console.log(steven.__proto__ === personProto); //true`
+- Object.create creates a new object and the prototypeof that object is the object that we parse in.
+- `const steven = Object.create(personProto);`
+- The prototype of steven object is personProto.
