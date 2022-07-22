@@ -576,3 +576,5 @@ console.log('Helper');
 //Acessing The method
 Account.helper();
 ```
+
+![es6overviewimg]

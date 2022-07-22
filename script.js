@@ -531,7 +531,7 @@ const jay = Object.create(studentProto);
 jay.init('Jay', 2010, 'Computer Science');
 jay.introduce();
 jay.calcAge();
-*/
+
 
 //ENCAPSULATION: PROTECTED PROPERTIES AND METHODS
 //Public fields
@@ -623,3 +623,80 @@ Account.helper();
 //chaining
 acc1.deposit(300).deposit(500).withdraw(35).requestLoan(25000).withdraw(4000);
 console.log(acc1.getMovements());
+
+///////////////////////////////////////
+// Coding Challenge #4
+
+
+1. Re-create challenge #3, but this time using ES6 classes: create an 'EVCl' child class of the 'CarCl' class
+2. Make the 'charge' property private;
+3. Implement the ability to chain the 'accelerate' and 'chargeBattery' methods of this class, and also update the 'brake' method in the 'CarCl' class. They experiment with chining!
+
+DATA CAR 1: 'Rivian' going at 120 km/h, with a charge of 23%
+
+GOOD LUCK 😀
+*/
+
+class CarCl {
+  constructor(make, speed) {
+    this.speed = speed;
+    this.make = make;
+  }
+
+  //create functions
+  accelerate() {
+    this.speed += 10;
+    console.log(`${this.make} is going at ${this.speed}`);
+    return this;
+  }
+
+  break() {
+    this.speed -= 15;
+    console.log(`${this.make} is going at ${this.speed} km/h`);
+    return this;
+  }
+
+  get speedUS() {
+    return this.speed / 1.6;
+  }
+  set speedUS(speed) {
+    this.speed = speed * 1.6;
+  }
+}
+
+class EVCl extends CarCl {
+  #charge;
+  constructor(make, speed, charge) {
+    super(make, speed); //inheriting parent class
+    this.#charge = charge;
+  }
+
+  chargeBattery(chargeTo) {
+    this.#charge = chargeTo;
+    return this;
+  }
+
+  accelerate() {
+    this.speed += 20;
+    this.#charge--;
+    console.log(
+      `${this.make} is going at ${this.speed} km/h with a charge of ${
+        this.#charge
+      }`
+    );
+    return this;
+  }
+}
+const rivian = new EVCl('Rivian', 128, 23);
+console.log(rivian);
+
+//chaining methods
+rivian
+  .accelerate()
+  .accelerate()
+  .accelerate()
+  .break()
+  .chargeBattery(50)
+  .accelerate();
+
+console.log(rivian.speedUS);
