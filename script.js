@@ -532,7 +532,7 @@ jay.init('Jay', 2010, 'Computer Science');
 jay.introduce();
 jay.calcAge();
 */
-
+//ENCAPSULATION: PROTECTED PROPERTIES AND METHODS
 class Account {
   constructor(owner, currency, pin) {
     this.owner = owner;
@@ -583,5 +583,3 @@ acc1.requestLoan(1000);
 //correct way to get ,ovements : since you can change them.
 console.log(acc1.getPin());
 console.log(acc1.getMovements());
-
-//ENCAPSULATION: PROTECTED PROPERTIES AND METHODS
