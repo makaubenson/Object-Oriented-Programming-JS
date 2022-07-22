@@ -546,6 +546,9 @@ class Account {
   }
 
   //PUBLIC INTERFACE(API)
+  getPin() {
+    return this._pin;
+  }
   getMovements() {
     return this._movements;
   }
@@ -577,6 +580,8 @@ acc1.deposit(250);
 acc1.withdraw(140);
 acc1.requestLoan(1000);
 // console.log(acc1);
+//correct way to get ,ovements : since you can change them.
+console.log(acc1.getPin());
 console.log(acc1.getMovements());
 
 //ENCAPSULATION: PROTECTED PROPERTIES AND METHODS
