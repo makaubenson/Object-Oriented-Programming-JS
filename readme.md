@@ -576,5 +576,4 @@ console.log('Helper');
 //Acessing The method
 Account.helper();
 ```
-
-![es6overviewimg]
+![ES6 CLASSES OVERVIEW](https://user-images.githubusercontent.com/59168713/180350017-338316b9-a103-4775-9fab-7397dfb92194.png)
