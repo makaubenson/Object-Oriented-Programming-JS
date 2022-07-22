@@ -530,3 +530,23 @@ jay.calcAge();
 ### ENCAPSULATION: PROTECTED PROPERTIES AND METHODS
 
 - Encapsulation means keeping some properties and methods private inside class that they aint accessible outside the class.
+
+##### Public Fields
+
+- Defining a public fields(always will be on every instance created)
+- These fields are also referencable with the this keyword
+
+```
+   locale = navigator.language;
+```
+
+##### Private Fields
+
+```
+ #movements = [];
+
+ //Error
+ <!-- Private field '#movements' must be declared in an enclosing class -->
+```
+
+- Not accessible outside the class it is defined in

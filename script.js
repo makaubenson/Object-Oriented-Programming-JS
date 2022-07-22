@@ -532,15 +532,27 @@ jay.init('Jay', 2010, 'Computer Science');
 jay.introduce();
 jay.calcAge();
 */
+
 //ENCAPSULATION: PROTECTED PROPERTIES AND METHODS
+//Public fields
+//Private fields
+//Public Methods
+//Private Methods
 class Account {
+  //defining a public fields(always will be on every instance created)
+  //These fields are also referencable with the this keyword
+  locale = navigator.language;
+
+  //private fields syntax
+  #movements = [];
+  #pin;
   constructor(owner, currency, pin) {
     this.owner = owner;
     this.currency = currency;
-    this._pin = pin;
+    this.#pin = pin;
     //protected property
-    this._movements = [];
-    this.locale = navigator.language;
+    // this._movements = [];
+    // this.locale = navigator.language;
 
     console.log(`Thanks for choosing to Bank with Us,${owner} `);
   }
@@ -550,10 +562,10 @@ class Account {
     return this._pin;
   }
   getMovements() {
-    return this._movements;
+    return this.#movements;
   }
   deposit(val) {
-    this._movements.push(val);
+    this.#movements.push(val);
   }
   withdraw(val) {
     this.deposit(-val);
@@ -583,3 +595,6 @@ acc1.requestLoan(1000);
 //correct way to get ,ovements : since you can change them.
 console.log(acc1.getPin());
 console.log(acc1.getMovements());
+
+// console.log(acc1.#movements); //Private field '#movements' must be declared in an enclosing class
+// console.log(acc1.#pin); // Private field '#pin' must be declared in an enclosing class
