@@ -592,6 +592,11 @@ class Account {
   // #approveLoan(val) {
   //   return true;
   // }
+
+  //static methods
+  static helper() {
+    console.log('Helper');
+  }
 }
 
 const acc1 = new Account('Benson', 'KSH', 1111);
@@ -609,5 +614,8 @@ acc1.requestLoan(1000);
 console.log(acc1.getPin());
 console.log(acc1.getMovements());
 console.log(acc1);
+
 // console.log(acc1.#movements); //Private field '#movements' must be declared in an enclosing class
 // console.log(acc1.#pin); // Private field '#pin' must be declared in an enclosing class
+
+Account.helper();

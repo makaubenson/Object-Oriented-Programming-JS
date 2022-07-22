@@ -565,3 +565,14 @@ jay.calcAge();
   return true;
   }
 ```
+
+### static methods
+
+```
+static helper() {
+console.log('Helper');
+}
+
+//Acessing The method
+Account.helper();
+```
