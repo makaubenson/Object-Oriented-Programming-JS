@@ -550,3 +550,18 @@ jay.calcAge();
 ```
 
 - Not accessible outside the class it is defined in
+
+  #### Private Methods
+
+```
+ requestLoan(val) {
+    if (this.#approveLoan(val)) {
+      this.deposit(val);
+      console.log(`Loan amount of ${val} has been approved. `);
+    }
+  }
+
+  #approveLoan(val) {
+  return true;
+  }
+```

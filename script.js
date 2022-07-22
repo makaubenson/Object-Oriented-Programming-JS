@@ -538,6 +538,7 @@ jay.calcAge();
 //Private fields
 //Public Methods
 //Private Methods
+
 class Account {
   //defining a public fields(always will be on every instance created)
   //These fields are also referencable with the this keyword
@@ -570,6 +571,7 @@ class Account {
   withdraw(val) {
     this.deposit(-val);
   }
+  //Protected Methods
   _approveLoan(val) {
     return true;
   }
@@ -579,6 +581,17 @@ class Account {
       console.log(`Loan amount of ${val} has been approved. `);
     }
   }
+
+  // requestLoan(val) {
+  //   if (this.#approveLoan(val)) {
+  //     this.deposit(val);
+  //     console.log(`Loan amount of ${val} has been approved. `);
+  //   }
+  // }
+  // //Private Methods
+  // #approveLoan(val) {
+  //   return true;
+  // }
 }
 
 const acc1 = new Account('Benson', 'KSH', 1111);
@@ -595,6 +608,6 @@ acc1.requestLoan(1000);
 //correct way to get ,ovements : since you can change them.
 console.log(acc1.getPin());
 console.log(acc1.getMovements());
-
+console.log(acc1);
 // console.log(acc1.#movements); //Private field '#movements' must be declared in an enclosing class
 // console.log(acc1.#pin); // Private field '#pin' must be declared in an enclosing class
