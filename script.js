@@ -537,25 +537,29 @@ class Account {
   constructor(owner, currency, pin) {
     this.owner = owner;
     this.currency = currency;
-    this.pin = pin;
-    this.movements = [];
+    this._pin = pin;
+    //protected property
+    this._movements = [];
     this.locale = navigator.language;
 
     console.log(`Thanks for choosing to Bank with Us,${owner} `);
   }
 
-  //PUBLIC INTERFACE
+  //PUBLIC INTERFACE(API)
+  getMovements() {
+    return this._movements;
+  }
   deposit(val) {
-    this.movements.push(val);
+    this._movements.push(val);
   }
   withdraw(val) {
     this.deposit(-val);
   }
-  approveLoan(val) {
+  _approveLoan(val) {
     return true;
   }
   requestLoan(val) {
-    if (this.approveLoan(val)) {
+    if (this._approveLoan(val)) {
       this.deposit(val);
       console.log(`Loan amount of ${val} has been approved. `);
     }
@@ -565,11 +569,14 @@ class Account {
 const acc1 = new Account('Benson', 'KSH', 1111);
 
 //WAY 1
-// acc1.movements.push(250);
-// acc1.movements.push(-140);
+// acc1._movements.push(250);
+// acc1._movements.push(-140);
 
 //WAY 2
 acc1.deposit(250);
 acc1.withdraw(140);
 acc1.requestLoan(1000);
-console.log(acc1);
+// console.log(acc1);
+console.log(acc1.getMovements());
+
+//ENCAPSULATION: PROTECTED PROPERTIES AND METHODS

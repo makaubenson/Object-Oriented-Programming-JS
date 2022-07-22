@@ -526,3 +526,7 @@ jay.calcAge();
 ```
 
 ![ObjectCreateClassInheritanceImg]
+
+### ENCAPSULATION: PROTECTED PROPERTIES AND METHODS
+
+- Encapsulation means keeping some properties and methods private inside class that they aint accessible outside the class.
