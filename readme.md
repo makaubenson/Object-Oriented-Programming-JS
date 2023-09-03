@@ -91,13 +91,13 @@
 ```
 //function expression
 const Person = function (firstName, birthYear) {
-  //   console.log(this); //Person {}
+    console.log(this); //Person {}
   this.firstName = firstName;
   this.birthYear = birthYear;
-   // This could work, but it is bad practice, you should never create method inside constructor functions.
-  //   this.calcAge = function () {
-  //     console.log(2037 - this.birthYear);
-  //   };
+   //This could work, but it is bad practice, you should never create method inside constructor functions.
+    this.calcAge = function () {
+      console.log(2037 - this.birthYear);
+    };
 };
 const benson = new Person('Benson', 2000);
 console.log(benson); //Person {firstName: 'benson', birthYear: 2000}
