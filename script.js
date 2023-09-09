@@ -18,7 +18,7 @@ const Person = function (firstName, birthYear) {
 const benson = new Person('Benson', 2000);
 console.log(benson); //Person {firstName: 'benson', birthYear: 2000}
 
-//What happens when we call a function with the new operator
+// What happens when we call a function with the new operator
 //1. New empty object is created
 //2. The function is called, then the this keyword is set to the new empty object.
 //3. The Newly created object is linked to prototype
@@ -28,7 +28,6 @@ const makau = new Person('Makau', 2002);
 const ruth = new Person('Ruth', 2002);
 console.log(ruth, makau);
 //`Person {firstName: 'Ruth', birthYear: 2002} Person {firstName: 'Makau', birthYear: 2002}`;
-
 console.log(benson instanceof Person); //true
 
 //Prototypes
@@ -61,7 +60,6 @@ console.log(benson.hasOwnProperty('species')); //false
 console.log(benson.__proto__);
 console.log(benson.__proto__.__proto__);
 console.log(benson.__proto__.__proto__.__proto__);
-
 console.dir(Person.prototype.constructor);
 
 //Prototype of Arrays
@@ -72,7 +70,6 @@ console.log(arr.__proto__ === Array.prototype); //true
 Array.prototype.unique = function () {
   return [...new Set(this)];
 };
-
 console.log(arr.unique()); //[3, 6, 4, 9, 5]
 
 const h1 = document.querySelector('h1');
