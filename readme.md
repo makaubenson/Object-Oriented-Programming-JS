@@ -160,7 +160,6 @@ ruth.calcAge(); //35
 - This is because each object has access to the methods and properties in its prototype. The prototype of `benson and ruth` is `Person.prototype`.
 
 ### Checking if objects properties
-
 ```
 console.log(benson.hasOwnProperty('firstName')); //true
 console.log(benson.hasOwnProperty('species'));//false
@@ -266,7 +265,6 @@ bmw.accelerate();
 bmw.break();
 
 ```
-
 ## ES6 CLASSES
 
 ```
